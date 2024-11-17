@@ -1,23 +1,17 @@
 # Chapter 8 Exercise Problems
 
 ### 1.
-
 Create your own greeting script similar to our `HelloHackersArise` script.
-
 ---
 
 ```shell
 #! /bin/bash
-
 echo "Hello, world!"
 ```
-
 ---
 
 ### 2.
-
 Create a script similar to `MySQLscanner.sh` but design it to find systems with Microsoft's SQL server database at port 1433. Call it `MSSQLscanner`.
-
 ---
 
 ```shell
