@@ -847,7 +847,7 @@ variables are system wide variables built into your system and interface that co
 
 ---
 
-# Chapter #8
+# Chapter #8 (* DONE!)
 
 > This chapter will introduce you to bash scripting, a staple for any serious hacker. You’ll learn the basics of bash.
 
@@ -1044,28 +1044,19 @@ DEVICES**
   ```
   
 ---
-# Chapter #10
-
+# Chapter #10 (* DONE)
 > This chapter will give you some essential file system management skills, and get information on files and connected disks.
-
 <br />
-
 For you as a hacker, it’s necessary to understand the file and storage device management system, both on your own system and, often, the system of your target. Hackers commonly use external media to load data, hacking tools, or even their OS.
-
 <br />
 
 ## THE DEVICE DIRECTORY /DEV
-
 Linux has a special directory that contains files representing each attached device: the appropriately named /dev directory.
-
 <br />
 
 ## How Linux Represents Storage Devices
-
-Linus uses logical lables for devices that are then mounted on the filesystem. The labels vary depending on where the drives are mounted.
-
+Linus uses logical labels for devices that are then mounted on the filesystem. The labels vary depending on where the drives are mounted.
 Newer SATA interface drives and SCSI hard drives are represented as **sda**. Drives are sometimes split up into sections known as partitions, which are represented in the labeling system with numbers.
-
 When systems have multiple hard drives, Linux names them serially by incrementing the last letter in alphabetical order.
 
 Device file | Description
@@ -1078,7 +1069,6 @@ sdd | fourth SATA hard drive
 <br />
 
 ## Drive Partitions
-
 linux lables each partition with a minor number that comes after the drive designation. The first partition on the first SATA drive would be sda1.
 
 Device file | Description
@@ -1089,74 +1079,56 @@ sda3 | third partition on the first SATA hard drive
 sda4 | fourth partition on the first SATA hard drive
 
 You may want to view the partitions on your Linux systems to see which ones you have and how much capacity is available in each. Use the **fdisk -l** to list all partitions.
-
 ```shell
 ┌──(root💀Fadl)-[~]
 └─# fdisk -l
 ```
-
 Linux uses a number of filesystems...**ext2, ext3 and ext4**. HPFS, NTFS and exFAT are not native to Linux systems but to macOS and Windows systems.
-
 <br />
 
 ## Character and Block Devices
-
 Character device are represented by *c*. External devices that interact with the system by sending and receving data character by characterm such as mice or keyboards. Block devices, by *d*. They communicate blocks of data and include devices like hard drives and DVD drives. These devices require higher-speed data throughput and therefore send and receive data in blocks.
-
 <br />
 
 ## List Block Devices and Information with lsblk
-
 **lsblk**, list block, lists some basic info about each block device. It will also display devices with multiple partitions in a kind of tree, showing each device with its partitions as branches and does not require root privileges to run.
 
 ```shell
 ┌──(root💀Fadl)-[~]
 └─# lsblk
 ```
-
 <br />
 
 ## Mounting and Unmounting 
-
 The two main mount points in Linux are **/*mnt*** and **/*media***. Internal hard drives are mounted at **/*mnt*** and external drives are mounted at **/*media***.
-
 <br />
 
 ## Mounting Storage Devices Yourself
-
 The mount point for the device should be an empty directory; if you mount a device on a directory that has subdirectories and files, the mounted device will cover the contents of the directory, making them invisible and unavailable.
-
 Mount the new hard drive sdb1 at /mnt.
 
 ```shell
 ┌──(root💀Fadl)-[~]
 └─# mount /dev/sdb1 /mnt
 ```
-
 Mount the new hard drive sdc1 at /media.
 
 ```shell
 ┌──(root💀Fadl)-[~]
 └─# mount /dev/sdc1 /media
 ```
-
 The filesystems that are mounted on a system are kept in a file at **/etc/fstab**
-
 <br />
 
 ## Unmounting with unmount
-
 Similar to the mount command, you can unmount a second hard drive by entering the ```umount``` command followed by the file entry of the device in the ***/dev*** directory, such as ***/dev/sdb***.
-
 ```shell
 ┌──(root💀Fadl)-[~]
 └─# umount /dev/sdb1
 ```
-
 <br />
 
 ## Monitoring Filesystems
-
 The command ```df``` will provide us with basic information on any hard disks or mounted devices. Without any options, **df** defaults to the first drive on your system.
 
 ```shell
@@ -1168,7 +1140,6 @@ The command ```df``` will provide us with basic information on any hard disks or
 
 ## Checking for Errors
 The ```fsck``` command checks the filesystem for errors and repairs the damage or else puts the bad area into a bad block table to mark it as bad. Run the fsck command requires specifying the filesystem, else it defaults to ext2, and the device file to check. **You must unmount the drive before running a filesystem check**.
-
 ```shell
 ┌──(root💀Fadl)-[~]
 └─# umount /dev/sdb1
@@ -1176,7 +1147,6 @@ The ```fsck``` command checks the filesystem for errors and repairs the damage o
 ┌──(root💀Fadl)-[~]
 └─# fsck -p /dev/sdb1
 ```
-
 ---
 
 # Chapter #11
