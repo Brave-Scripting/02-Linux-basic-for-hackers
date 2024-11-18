@@ -929,24 +929,21 @@ Now you can execute the script if you are in the same folder by calling it ```./
 This is a very basics summary for bash scripting.
 
 ---
-# Chapter #9
-
-> This chapter will teach you how to compress and archive files to keep your system clean.
-
+# Chapter #9 (*DONE)
+> This chapter will teach you how to compress and archive files 
+> to keep your system clean.
 <br />
 
 ## WHAT IS COMPRESSION?
-
-Compression, as the name implies, makes data smaller, thereby requiring less storage capacity and making the data easier to transmit.
-
+Compression, as the name implies, makes data smaller, 
+thereby requiring less storage capacity and making the data easier to transmit.
 <br />
 
 ## Commands
-
 - **TARRING FILES TOGETHER**: 
-
   the first thing you do when compressing files is to combine them into an archive.
-  In most cases, when archiving files, you’ll use the ```tar``` command. Tar stands for tape archive.
+  In most cases, when archiving files, you’ll use the ```tar``` command. 
+- Tar stands for tape archive.
 
   ```shell
   ┌──(m-fadl㉿Fadl)-[~]
@@ -978,67 +975,51 @@ Compression, as the name implies, makes data smaller, thereby requiring less sto
   └─# tar tar -cvf HackersArise.tar hackersarise1.sh hackersarise2.sh hackersarise3.sh
   ```
   this command will take all three files and create a single file, HackersArise.tar
-
   If you want to **extract** the files use:
-
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# tar tar -xf HackersArise.tar
   ```
 
 - **TARRING FILES TOGETHER**: 
-
   Linux has several commands capable of creating compressed files. We will look at these:
-
   - gzip, which uses the extension .tar.gz or .tgz
   - bzip2, which uses the extension .tar.bz2
   - compress, which uses the extension .tar.z
 
-  These all are capable of compressing our files, but they use different compression algorithms and have different compression ratios.
+  - These all are capable of compressing our files, but they use different compression algorithms and have different compression ratios.
 
 - **Compressing with gzip**:
-  
-  You can compress your HackersArise.tar file by entering the following
-
+    You can compress your HackersArise.tar file by entering the following
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# gzip HackersArise.tar
   ```
-
   You can decompress that same file by using the ```gunzip``` command, short for GNU unzip.
-
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# gunzip HackersArise.tar.gz
   ```
 
 - **Compressing with bzip2**:
-
   Another of the other widely used compression utilities in Linux is bzip2, which works similarly to gzip but has better compression ratios, meaning that the resulting file will be even smaller. You can compress your HackersArise.tar file by entering the following:
-
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# bzip2 HackersArise.tar
   ```
-
   To uncompress the compressed file, use bunzip2, like so:
-
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# bunzip2 HackersArise.tar.bz2
   ```
   
 - **Compressing with compress**:
-
   you can use the command compress to compress the file. This is probably the least commonly used compression utility.
-
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# copress HackersArise.tar
   ```
-
   To decompress the same file, use uncompress:
-
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# uncopress HackersArise.tar.Z
@@ -1046,20 +1027,15 @@ Compression, as the name implies, makes data smaller, thereby requiring less sto
 
 - **CREATING BIT-BY-BIT OR PHYSICAL COPIES OF STORAGE
 DEVICES**
-
   Within the world of information security and hacking, one Linux archiving command stands above the rest in its usefulness. The ```dd``` command makes a bit by bit copy of a file, a filesystem, or even an entire hard drive.
-  
   This means that even deleted files are copied (yes, it’s important to know that your deleted files may be recoverable), making for easy discovery and recovery
-
   It’s critical to note that the dd command should not be used for typical day to day copying of files and storage devices because it is very slow.
 
   The basic syntax for the dd command is as follows:
-
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# dd if=inputfile of=outputfile
   ```
-
   make a physical copy of your flash drive, assuming the flash drive is sdb
 
   ```shell
