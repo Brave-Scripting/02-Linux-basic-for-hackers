@@ -1150,11 +1150,8 @@ The ```fsck``` command checks the filesystem for errors and repairs the damage o
 ---
 
 # Chapter #11
-
 > This chapter will teach you how use and manipulate the logging system to get information on a target’s activity and cover yourcown tracks.
-
 <br />
-
 Log files store information about events that occur when the operating system and applications are run, including any errors and security alerts.
 
 ## THE RSYSLOG LOGGING DAEMON
@@ -1165,21 +1162,17 @@ Searching for all files related to rsyslog.
 ┌──(root💀Fadl)-[~]
 └─# locate rsyslog
 ```
-
 <br />
 
 ## The rsyslog Configuration File
-
 Like nearly every application in Linux, rsyslog is managed and configured by a plaintext
 configuration file located.
-
 the configuration file is located at /etc/rsyslog.conf
 
 ```shell
 ┌──(root💀Fadl)-[~]
 └─# leafpad /etc/rsyslog.conf
 ```
-
 In the output you’ll find the Rules section down to below line 50.
 
 The rsyslog rules determine what kind of information is logged, what programs have
@@ -1191,86 +1184,63 @@ they’re logged to. The basic format for these rules is as follows:
 ```shell
 facility.priority action
 ```
-
 - The facility keyword references the program, such as mail, kernel, or lpr, whose messages are being logged
-
 - The priority keyword determines what kind of messages to
 log for that program.
-
 - The action keyword, on the far right, references the location where the log will be sent
-
 Let’s look at some examples of log rules:
 
 ```shell
 mail.* /var/log/mail
 ```
 This example will log mail events of all (*) priorities to /var/log/mail.
-
 <br />
 
 ## AUTOMATICALLY CLEANING UP LOGS WITH LOGROTATE
-
 Log files take up space, so if you don’t delete them periodically, they will eventually fill your entire hard drive.
-
 On the other hand, if you delete your log files too frequently, you won’t have logs to investigate at some future point in time.
-You can use logrotate to determine the balance between these opposing requirements by rotating your logs.
 
+You can use logrotate to determine the balance between these opposing requirements by rotating your logs.
 You can configure the logrotate utility to choose the regularity of your log rotation with the ***/etc/logrotate.conf*** text file.
 
 ```shell
 ┌──(root💀Fadl)-[~]
 └─# leafpad /etc/logrotate.conf
 ```
-
 You will see that the system save your activity every 4 Weeks, change it if you want.
-
 <br />
 
 ## REMAINING STEALTHY
-
 - **Removing Evidence**:
-
   When you delete a file from Linux or from any os, then the file is not deleted permanently from the hard disk. When a file is deleted it first gets moved to the trash and as soon as you clear off the trash the files get deleted for the file system. But the file is still there in your hard drive and it could be recovered.
-
   When you delete a file permanently or delete it from the trash, the pointer pointing to the file leaves the address of it and the data of the file is sent to a sector in hard disk and is considered as unallocated space and it can be recovered easily. The file gets permanently deleted when the OS writes over the sector of the file which was considered as unallocated. So, in order to delete a file completely from hard disk “shred” is used in Linux. This command overwrites the contents of a file multiple times, using patterns chosen to maximize the destruction of the residual data, making it harder for even very expensive hardware probing to recover it.
-
   Syntax:
-
   ```shell
   shred [OPTION]... FILE...
   ```
-
   We need the –f option to give us permission to shred auth files, and we follow the –n option with the desired number of times to overwri
-
   ```shell
   shred -f -n 10 /var/log/auth.log.
   ```
 
 - **Disabling Logging**:
-
   Another option for covering your tracks is to simply disable logging. When a hacker takes control of a system, they could immediately disable logging to prevent the system from keeping track of their activities.
-
   To disable all logging, the hacker could simply stop the rsyslog daemon.
 
   ```shell
   ┌──(root💀Fadl)-[~]
   └─# service rsyslog stop
   ```
-
   Linux will stop generating any log files until the service is restarted.
-
 ---
 
 # Chapter #12
-
 > This chapter will teach you how to use and abuse three core Linux services: Apache web server, OpenSSH, and MySQL
-
 <br />
 
 A service is an application that runs in the background waiting for you to use it.
 
 ## STARTING, STOPPING, AND RESTARTING SERVICES
-
 you can use ```service``` command to start, stop, or restart the service.
 
 ```shell
