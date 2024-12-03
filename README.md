@@ -1,6 +1,4 @@
-# LINUX BASICS FOR HACKERS Book Summary - Task for CAT CyberSecurity Circle
-
-![CAT Logo](img/icon.png)
+# LINUX BASICS FOR HACKERS Book Summary -
 
 | 📝Chapter  | 🔎Content |
 | --- | --- |
